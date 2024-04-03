@@ -34,9 +34,10 @@ jobs:
       # - name: Terraform Apply
       #   if: github.ref =='refs/heads/main' && github.event_name =='push'
       #   run: terraform apply -auto-approve
+
       - name: Publish Terraform Plan Artifact
         if: steps.plan.outcome == 'success'
         uses: actions/upload-artifact@v2
         with:
           name: terraform-plan
-          path: .terraform/terraform.tfplan
+          path: tfplan
