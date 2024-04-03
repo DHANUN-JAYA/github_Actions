@@ -26,7 +26,7 @@ jobs:
       - name: Terraform plan
         id: plan
         if: github.event_name=='push'
-        run: terraform plan -no-color
+        run: terraform plan -out=tfplan
         continue-on-error: true
       - name: Terraform Plan Status
         if: steps.plan.outcome == 'failure'
