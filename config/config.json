@@ -1,0 +1,9 @@
+
+{
+     "storage_account":[
+       {
+         "bucket_name" : "my-tf-test-bucket3333"
+      }
+
+     ]
+}
