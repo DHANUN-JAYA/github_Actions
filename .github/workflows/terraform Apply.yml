@@ -14,9 +14,9 @@ jobs:
       AWS_REGION: "us-east-1"
     steps:
       - name: Checkout
+        uses: actions/checkout@v2 
+      - name: Checkout GITHUB_ACTION_2
         uses: actions/checkout@v2
-        
-        
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
 
