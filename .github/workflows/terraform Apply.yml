@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Checkout GITHUB_ACTION_2
-        run: git GITHUB_ACTION_2 update --init --recursive
+        uses: actions/checkout@v2
         
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
