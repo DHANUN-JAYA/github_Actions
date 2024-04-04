@@ -16,7 +16,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         
-      - name: Checkout GITHUB_ACTION_2
+      - name: Checkout GITHUB_ACTION_23
         uses: actions/checkout@v2
         
       - name: Setup Terraform
