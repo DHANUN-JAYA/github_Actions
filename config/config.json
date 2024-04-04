@@ -1,6 +1,6 @@
 
 {
-     "storage_account":[
+     "aws_s3_bucket":[
        {
          "bucket_name" : "my-tf-test-bucket3333"
       }

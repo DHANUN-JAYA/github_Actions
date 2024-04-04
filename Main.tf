@@ -1,12 +1,13 @@
-terraform {
-  required_version = ">= 0.12.24"
-#  backend "s3" {
-#    bucket = "cloudquickpocsbackendtf"
-#    key="quickpocsbackendtf.tfstates"
-#    region = "us-east-1"
-#  }
+locals {
+  config_data = jsondecode(file("${path.module}/config/config.json"))
 }
-provider "aws" {
-#  region = "us-east-1"
-  region="eu-central-1"
+
+
+
+module "storage_account" {
+  source = "./module/s3"
+
+  for_each = { for entry in local.config_data["aws_s3_bucket"] : entry["aws_s3_bucket"] => entry }
+
+  config = each.value
 }
