@@ -71,4 +71,4 @@ jobs:
           path: ./terraform       # Corrected the destination path
       - name: Terraform Apply
         run: terraform apply -auto-approve
-        working-directory: ./terraform  # Added the working directory for the Terraform apply step
+        
