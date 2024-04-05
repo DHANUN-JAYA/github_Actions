@@ -70,7 +70,6 @@ jobs:
           name: terraform-plan  # Corrected the artifact name
           path: ./tfplan       # Corrected the destination path
       - name: Terraform Apply
-        run: terraform apply -auto-approve
-        working-directory: ./tfplan
+        run: terraform apply -auto-approve tfplan
       
         
