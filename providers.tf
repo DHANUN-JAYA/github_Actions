@@ -12,6 +12,6 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "example" {
-  bucket = var.config["bucket_name"]
-# bucket = "sadhuu11"
+#  bucket = var.config["bucket_name"]
+ bucket = "sadhuu11"
 }
