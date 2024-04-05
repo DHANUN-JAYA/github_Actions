@@ -1,3 +1,3 @@
-variable "config" {
-  description = "Configuration for storage account"
-}
+#variable "config" {
+#  description = "Configuration for storage account"
+#}
