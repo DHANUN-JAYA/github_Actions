@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+
 jobs:
   terraform:
     name: "Terraform"
@@ -15,8 +16,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2 
+      
+      # Add authentication steps before Terraform Init
+      - name: Authenticate with GitHub
+        run: |
+          git config --global user.email "sadhu.dhanunjay@diggibyte.com"
+          git config --global user.name "DHANUN-JAYA"
+          git config --global credential.helper store
+          git clone https://github.com/DHANUN-JAYA/GITHUB_ACTION_2.git
+        env:
+          PAT: ${{ secrets.GITHIB_PAT }}
+
       - name: Checkout GITHUB_ACTION_2
         uses: actions/checkout@v2
+      
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
 
@@ -29,9 +42,11 @@ jobs:
         if: github.event_name=='push'
         run: terraform plan -out=tfplan
         continue-on-error: true
+
       - name: Terraform Plan Status
         if: steps.plan.outcome == 'failure'
         run: exit 1
+      
       # - name: Terraform Apply
       #   if: github.ref =='refs/heads/main' && github.event_name =='push'
       #   run: terraform apply -auto-approve
