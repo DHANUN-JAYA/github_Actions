@@ -29,6 +29,7 @@ jobs:
         if: github.event_name=='push'
         run: terraform plan -out=tfplan
         continue-on-error: true
+        working-directory: ./config
       - name: Terraform Plan Status
         if: steps.plan.outcome == 'failure'
         run: exit 1
