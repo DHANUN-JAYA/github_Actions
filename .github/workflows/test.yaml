@@ -69,6 +69,5 @@ jobs:
         with:
           name: terraform-plan  # Corrected the artifact name
           path: ./terraform       # Corrected the destination path
-      - name: Terraform Apply
-        run: terraform apply -auto-approve
+      
         
