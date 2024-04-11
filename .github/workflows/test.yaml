@@ -55,7 +55,7 @@ jobs:
         if: steps.plan.outcome == 'success'
         uses: actions/upload-artifact@v3
         with:
-          name: terraform-plan
+          name: tfplan
           path: tfplan
 
   deploy:
@@ -80,10 +80,10 @@ jobs:
       - name: Download Terraform Plan
         uses: actions/download-artifact@v3
         with:
-          name: terraform-plan
+          name: tfplan
 
       # Terraform Apply
       - name: Terraform Apply
-        run: terraform apply -auto-approve terraform-plan
+        run: terraform apply -auto-approve tfplan
       
         
